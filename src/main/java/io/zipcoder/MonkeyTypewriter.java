@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import java.sql.SQLOutput;
+
 public class MonkeyTypewriter {
     public static void main(String[] args) {
         String introduction = "It was the best of times,\n" +
@@ -44,5 +46,7 @@ public class MonkeyTypewriter {
         // Print out the copied versions here.
         System.out.println("Unsafe version: \n" + unsafe.copied);
         System.out.println("Safe version: \n" + safe.copied);
+        boolean safeEqualsIntro = safe.copied.equals(introduction);
+        System.out.println(safeEqualsIntro);
     }
 }
