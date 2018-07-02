@@ -9,12 +9,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class SafeCopier extends Copier {
 
+    ReadWriteLock lock;
+
     public SafeCopier(String toCopy) {
         super(toCopy);
     }
 
     public void run() {
-        ReadWriteLock lock = new ReentrantReadWriteLock();
+        lock = new ReentrantReadWriteLock();
         lock.writeLock().lock();
         lock.readLock().lock();
         try {
